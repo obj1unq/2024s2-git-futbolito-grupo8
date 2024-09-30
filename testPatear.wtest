@@ -1,0 +1,26 @@
+import objetos.*
+
+describe "Pruebo patear" {
+
+    method initialize() {
+        game.width(12)
+        pelota.position(game.at(5,5))
+    }
+
+    test "Pateo" {
+        lionel.buscarla()
+        lionel.patear()
+        assert.equals(game.at(8,5), pelota.position())
+        lionel.buscarla()
+        lionel.patear()
+        assert.equals(game.at(11,5), pelota.position())
+        lionel.buscarla()
+        lionel.patear()
+        assert.equals(game.at(11,5), pelota.position())
+    }
+
+    test "No hay pelota que patear" {
+        lionel.inicio()
+        assert.throwsException({lionel.patear()})
+    }
+}

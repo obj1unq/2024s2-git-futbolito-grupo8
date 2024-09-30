@@ -2,7 +2,7 @@
 import wollok.game.*
 
 object lionel {
-	
+	const fulbo = pelota
 	var property position = game.at(3,5)
 	
 	method image() {
@@ -15,6 +15,14 @@ object lionel {
 	
 	method avanzar() {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
+	}
+
+	method inicio() {
+		position = game.at(0,5)
+	}
+
+	method buscarla() {
+		position = fulbo.position()
 	}
 	
 }

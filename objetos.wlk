@@ -24,6 +24,20 @@ object lionel {
 	method buscarla() {
 		position = fulbo.position()
 	}
+
+	method tienePelota() {
+		return position == fulbo.position()
+	}
+
+	method patear() {
+		self.validarSiHayPelota()
+		fulbo.desplazarAdelante(3)
+	}
+
+	method validarSiHayPelota() {
+		if (not self.tienePelota())
+			self.error("No hay pelota que patear")
+	}
 	
 }
 
@@ -31,4 +45,8 @@ object lionel {
 object pelota {
 	const property image="pelota.png"
 	var property position = game.at(5,5)	
+
+	method desplazarAdelante(posiciones) {
+		position = game.at((game.width()-1).min(position.x() + posiciones),position.y())
+	}
 }

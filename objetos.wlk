@@ -4,9 +4,10 @@ import wollok.game.*
 object lionel {
 	const fulbo = pelota
 	var property position = game.at(3,5)
+	var camisetaActual = "titular"
 	
 	method image() {
-		return "lionel-titular.png"
+		return "lionel-" + camisetaActual + ".png"
 	}
 
 	method retroceder() {
@@ -23,6 +24,16 @@ object lionel {
 
 	method buscarla() {
 		position = fulbo.position()
+	}
+
+	method camiseta() {
+		if (position.x() == 0) {
+			if (camisetaActual == "titular") {
+				camisetaActual = "suplente"
+			} else {
+				camisetaActual = "titular"
+			}
+		}
 	}
 	
 }
